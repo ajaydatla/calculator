@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   runApp(MainScreen());
@@ -7,6 +8,7 @@ void main() {
 class HomeState extends State<MainScreen> {
 
   final TextEditingController _digitOneController = new TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -21,42 +23,228 @@ class HomeState extends State<MainScreen> {
         body: Container(
           child: ListView(
             children: <Widget>[
-//                  Divider(
-//                    height: 300.0,
-//                  ),
-              TextField(
-                decoration:
-                    InputDecoration.collapsed(hintText: 'enter valuess'),
-                keyboardType: TextInputType.number,
-                controller: _digitOneController,
-                style: TextStyle(
-//                      height: 3.0,
-
-                  color: Colors.black,
-                  fontSize: 80.0,
-//                    textBaseline: TextBaseline.alphabetic
-                ),
+              Text(
+                ''
               ),
-//              Divider(
-//                height: 200.0,
-//                color: Color(5),
-//              ),
               new Padding(padding: EdgeInsets.all(80.0)),
               Row(
                 children: <Widget>[
+
                   IconButton(
-                    icon: Icon(Icons.add),
-                    onPressed: addition,
-                    iconSize: 80.0,
-                    color: Colors.blue.shade400,
-                  ),
-                  IconButton(
-                    icon: Icon(Icons.indeterminate_check_box),
-                    onPressed: substract,
+                    icon: new Text(
+                      '7',
+                      style: new TextStyle(
+
+                          fontSize: 30.0,
+                          fontWeight: FontWeight.w800,
+                          color: Colors.blue.shade400),
+                    ),
+                    onPressed: () => addition(7),
                     iconSize: 80.0,
 
-                    color: Colors.blue.shade400,
-                  )
+
+                  ),
+                  IconButton(
+                    icon: new Text(
+                      '8',
+                      style: new TextStyle(
+
+                          fontSize: 30.0,
+                          fontWeight: FontWeight.w800,
+                          color: Colors.blue.shade400),
+                    ),
+                    onPressed: () => addition(8),
+                    iconSize: 80.0,
+
+
+                  ),
+                  IconButton(
+                    icon: new Text(
+                      '9',
+                      style: new TextStyle(
+
+                          fontSize: 30.0,
+                          fontWeight: FontWeight.w800,
+                          color: Colors.blue.shade400),
+                    ),
+                    onPressed: () => addition(9),
+                    iconSize: 80.0,
+
+
+                  ),
+                  IconButton(
+                    icon: Icon(Icons.add),
+                    onPressed: () => addition(9),
+                    iconSize: 50.0,
+
+
+                  ),
+
+                ],
+              ),
+              Row(
+                children: <Widget>[
+
+                  IconButton(
+                    icon: new Text(
+                      '4',
+                      style: new TextStyle(
+
+                          fontSize: 30.0,
+                          fontWeight: FontWeight.w800,
+                          color: Colors.blue.shade400),
+                    ),
+                    onPressed: () => addition(4),
+                    iconSize: 80.0,
+
+
+                  ),
+                  IconButton(
+                    icon: new Text(
+                      '5',
+                      style: new TextStyle(
+
+                          fontSize: 30.0,
+                          fontWeight: FontWeight.w800,
+                          color: Colors.blue.shade400),
+                    ),
+                    onPressed: () => addition(5),
+                    iconSize: 80.0,
+
+
+                  ),
+                  IconButton(
+                    icon: new Text(
+                      '6',
+                      style: new TextStyle(
+
+                          fontSize: 30.0,
+                          fontWeight: FontWeight.w800,
+                          color: Colors.blue.shade400),
+                    ),
+                    onPressed: () => addition(6),
+                    iconSize: 80.0,
+
+
+                  ),
+                  IconButton(
+                    icon: Icon(FontAwesomeIcons.minus),
+                    onPressed: () => addition(9),
+                    iconSize: 40.0,
+//                    color: Colors.blue,
+
+                  ),
+
+                ],
+              ),
+              Row(
+                children: <Widget>[
+
+                  IconButton(
+                    icon: new Text(
+                      '1',
+                      style: new TextStyle(
+
+                          fontSize: 30.0,
+                          fontWeight: FontWeight.w800,
+                          color: Colors.blue.shade400),
+                    ),
+                    onPressed: () => addition(1),
+                    iconSize: 80.0,
+
+
+                  ),
+                  IconButton(
+                    icon: new Text(
+                      '2',
+                      style: new TextStyle(
+
+                          fontSize: 30.0,
+                          fontWeight: FontWeight.w800,
+                          color: Colors.blue.shade400),
+                    ),
+                    onPressed: () => addition(2),
+                    iconSize: 80.0,
+
+
+                  ),
+                  IconButton(
+                    icon: new Text(
+                      '3',
+                      style: new TextStyle(
+
+                          fontSize: 30.0,
+                          fontWeight: FontWeight.w800,
+                          color: Colors.blue.shade400),
+                    ),
+                    onPressed: () => addition(3),
+                    iconSize: 80.0,
+
+
+                  ),
+                  IconButton(
+                    icon: Icon(Icons.clear),
+                    onPressed: () => addition(9),
+                    iconSize: 50.0,
+//                    color: Colors.blue,
+
+                  ),
+
+                ],
+              ),
+              Row(
+                children: <Widget>[
+
+                  IconButton(
+                    icon: new Text(
+                      '%',
+                      style: new TextStyle(
+
+                          fontSize: 30.0,
+                          fontWeight: FontWeight.w800,
+                          color: Colors.blue.shade400),
+                    ),
+                    onPressed: () => addition(100),
+                    iconSize: 80.0,
+
+
+                  ),
+                  IconButton(
+                    icon: new Text(
+                      '0',
+                      style: new TextStyle(
+
+                          fontSize: 30.0,
+                          fontWeight: FontWeight.w800,
+                          color: Colors.blue.shade400),
+                    ),
+                    onPressed: () => addition(0),
+                    iconSize: 80.0,
+
+
+                  ),
+                  IconButton(
+                    icon: new Text(
+                      '.',
+                      style: new TextStyle(
+
+                          fontSize: 30.0,
+                          fontWeight: FontWeight.w800,
+                          color: Colors.blue.shade400),
+                    ),
+                    onPressed: () => addition(10),
+                    iconSize: 80.0,
+
+
+                  ),
+                  IconButton(
+                    icon: Icon(FontAwesomeIcons.divide),
+                    onPressed: () => addition(9),
+                    iconSize: 40.0,
+//                    color: Colors.blue,
+
+                  ),
+
                 ],
               )
             ],
@@ -66,20 +254,10 @@ class HomeState extends State<MainScreen> {
     );
   }
 
-  void addition(){
-    setState(() {
-      double digitOne = double.parse(_digitOneController.text);
-      print(digitOne);
-      _digitOneController.text = _digitOneController.text + '+';
-    });
+  void addition(int val){
+   print(val);
   }
-  void substract(){
-    setState(() {
-      double digitOne = double.parse(_digitOneController.text);
-      print(digitOne);
-      _digitOneController.text = _digitOneController.text + '-';
-    });
-  }
+
 
 
 }
