@@ -298,6 +298,7 @@ class HomeState extends State<MainScreen> {
 
     void doAddition(){
       print("inside doAddition");
+
       _finalAnswer += int.parse(_value);
       print(_value);
       print(_finalAnswer);
