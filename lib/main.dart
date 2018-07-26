@@ -8,7 +8,9 @@ void main() {
 class HomeState extends State<MainScreen> {
 
   final TextEditingController _digitOneController = new TextEditingController();
-  int _value = 0 ;
+  String _oldValue = "old";
+  String _value = "" ;
+  int _finalAnswer = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -22,11 +24,26 @@ class HomeState extends State<MainScreen> {
         ),
         body: Container(
           child: ListView(
+
             children: <Widget>[
+              new Padding(padding: EdgeInsets.all(40.0)),
               Text(
-                '$_value'
+                _oldValue,
+                textAlign: TextAlign.right,
+                style: TextStyle(
+                  fontSize: 60.0,
+                  color: Colors.black26
+                ),
               ),
-              new Padding(padding: EdgeInsets.all(80.0)),
+              Text(
+                _value,
+                textAlign: TextAlign.right,
+                style: TextStyle(
+                  fontSize: 60.0,
+
+                ),
+              ),
+
               Row(
                 children: <Widget>[
 
@@ -39,7 +56,7 @@ class HomeState extends State<MainScreen> {
                           fontWeight: FontWeight.w800,
                           color: Colors.blue.shade400),
                     ),
-                    onPressed: () => addition(7),
+                    onPressed: () => inputValue(7),
                     iconSize: 80.0,
 
 
@@ -53,7 +70,7 @@ class HomeState extends State<MainScreen> {
                           fontWeight: FontWeight.w800,
                           color: Colors.blue.shade400),
                     ),
-                    onPressed: () => addition(8),
+                    onPressed: () => inputValue(8),
                     iconSize: 80.0,
 
 
@@ -67,14 +84,14 @@ class HomeState extends State<MainScreen> {
                           fontWeight: FontWeight.w800,
                           color: Colors.blue.shade400),
                     ),
-                    onPressed: () => addition(9),
+                    onPressed: () => inputValue(9),
                     iconSize: 80.0,
 
 
                   ),
                   IconButton(
                     icon: Icon(Icons.add),
-                    onPressed: () => addition(9),
+                    onPressed: () => addition(),
                     iconSize: 50.0,
 
 
@@ -94,7 +111,7 @@ class HomeState extends State<MainScreen> {
                           fontWeight: FontWeight.w800,
                           color: Colors.blue.shade400),
                     ),
-                    onPressed: () => addition(4),
+                    onPressed: () => inputValue(4),
                     iconSize: 80.0,
 
 
@@ -108,7 +125,7 @@ class HomeState extends State<MainScreen> {
                           fontWeight: FontWeight.w800,
                           color: Colors.blue.shade400),
                     ),
-                    onPressed: () => addition(5),
+                    onPressed: () => inputValue(5),
                     iconSize: 80.0,
 
 
@@ -122,14 +139,14 @@ class HomeState extends State<MainScreen> {
                           fontWeight: FontWeight.w800,
                           color: Colors.blue.shade400),
                     ),
-                    onPressed: () => addition(6),
+                    onPressed: () => inputValue(6),
                     iconSize: 80.0,
 
 
                   ),
                   IconButton(
                     icon: Icon(FontAwesomeIcons.minus),
-                    onPressed: () => addition(9),
+                    onPressed: () => inputValue(9),
                     iconSize: 40.0,
 //                    color: Colors.blue,
 
@@ -149,7 +166,7 @@ class HomeState extends State<MainScreen> {
                           fontWeight: FontWeight.w800,
                           color: Colors.blue.shade400),
                     ),
-                    onPressed: () => addition(1),
+                    onPressed: () => inputValue(1),
                     iconSize: 80.0,
 
 
@@ -163,7 +180,7 @@ class HomeState extends State<MainScreen> {
                           fontWeight: FontWeight.w800,
                           color: Colors.blue.shade400),
                     ),
-                    onPressed: () => addition(2),
+                    onPressed: () => inputValue(2),
                     iconSize: 80.0,
 
 
@@ -177,14 +194,14 @@ class HomeState extends State<MainScreen> {
                           fontWeight: FontWeight.w800,
                           color: Colors.blue.shade400),
                     ),
-                    onPressed: () => addition(3),
+                    onPressed: () => inputValue(3),
                     iconSize: 80.0,
 
 
                   ),
                   IconButton(
                     icon: Icon(Icons.clear),
-                    onPressed: () => addition(9),
+                    onPressed: () => inputValue(9),
                     iconSize: 50.0,
 //                    color: Colors.blue,
 
@@ -204,7 +221,7 @@ class HomeState extends State<MainScreen> {
                           fontWeight: FontWeight.w800,
                           color: Colors.blue.shade400),
                     ),
-                    onPressed: () => addition(100),
+                    onPressed: () => inputValue(100),
                     iconSize: 80.0,
 
 
@@ -218,7 +235,7 @@ class HomeState extends State<MainScreen> {
                           fontWeight: FontWeight.w800,
                           color: Colors.blue.shade400),
                     ),
-                    onPressed: () => addition(0),
+                    onPressed: () => inputValue(0),
                     iconSize: 80.0,
 
 
@@ -232,14 +249,14 @@ class HomeState extends State<MainScreen> {
                           fontWeight: FontWeight.w800,
                           color: Colors.blue.shade400),
                     ),
-                    onPressed: () => addition(10),
+                    onPressed: () => inputValue(10),
                     iconSize: 80.0,
 
 
                   ),
                   IconButton(
                     icon: Icon(FontAwesomeIcons.divide),
-                    onPressed: () => addition(9),
+                    onPressed: () => doAddition(),
                     iconSize: 40.0,
 //                    color: Colors.blue,
 
@@ -254,12 +271,41 @@ class HomeState extends State<MainScreen> {
     );
   }
 
-  void addition(int val){
+  void inputValue(int val){
    print(val);
+
+   if(_value == '+') _value = "";
+
    setState(() {
-     _value = val;
+     _value += val.toString();
+     print("vlaue: "+_value);
+     _oldValue = '+';
    });
   }
+
+  void addition(){
+    print('inside addition');
+    print(_value);
+    _oldValue = _value;
+    _finalAnswer += int.parse(_value);
+    print(_finalAnswer);
+    setState(() {
+      _oldValue;
+      _value = '+';
+//      _value;
+    });
+    }
+
+    void doAddition(){
+      print("inside doAddition");
+      _finalAnswer += int.parse(_value);
+      print(_value);
+      print(_finalAnswer);
+      _value = _finalAnswer.toString();
+      setState(() {
+        _value;
+      });
+    }
 
 
 
