@@ -8,7 +8,7 @@ void main() {
 class HomeState extends State<MainScreen> {
 
   final TextEditingController _digitOneController = new TextEditingController();
-
+  int _value = 0 ;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class HomeState extends State<MainScreen> {
           child: ListView(
             children: <Widget>[
               Text(
-                ''
+                '$_value'
               ),
               new Padding(padding: EdgeInsets.all(80.0)),
               Row(
@@ -256,6 +256,9 @@ class HomeState extends State<MainScreen> {
 
   void addition(int val){
    print(val);
+   setState(() {
+     _value = val;
+   });
   }
 
 
