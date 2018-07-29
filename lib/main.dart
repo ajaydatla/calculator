@@ -305,7 +305,9 @@ class HomeState extends State<MainScreen> {
       _value = _finalAnswer.toString();
       setState(() {
         _value;
+        _finalAnswer = 0;
       });
+
     }
 
 
