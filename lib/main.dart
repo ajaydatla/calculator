@@ -26,7 +26,7 @@ class HomeState extends State<MainScreen> {
           child: ListView(
 
             children: <Widget>[
-              new Padding(padding: EdgeInsets.all(40.0)),
+              new Padding(padding: EdgeInsets.all(50.0)),
               Text(
                 _oldValue,
                 textAlign: TextAlign.right,
@@ -47,103 +47,22 @@ class HomeState extends State<MainScreen> {
               Row(
                 children: <Widget>[
 
-                  IconButton(
-                    icon: new Text(
-                      '7',
-                      style: new TextStyle(
-
-                          fontSize: 30.0,
-                          fontWeight: FontWeight.w800,
-                          color: Colors.blue.shade400),
-                    ),
-                    onPressed: () => inputValue(7),
-                    iconSize: 80.0,
-
-
-                  ),
-                  IconButton(
-                    icon: new Text(
-                      '8',
-                      style: new TextStyle(
-
-                          fontSize: 30.0,
-                          fontWeight: FontWeight.w800,
-                          color: Colors.blue.shade400),
-                    ),
-                    onPressed: () => inputValue(8),
-                    iconSize: 80.0,
-
-
-                  ),
-                  IconButton(
-                    icon: new Text(
-                      '9',
-                      style: new TextStyle(
-
-                          fontSize: 30.0,
-                          fontWeight: FontWeight.w800,
-                          color: Colors.blue.shade400),
-                    ),
-                    onPressed: () => inputValue(9),
-                    iconSize: 80.0,
-
-
-                  ),
+                  iconButton(7),
+                  iconButton(8),
+                  iconButton(9),
                   IconButton(
                     icon: Icon(Icons.add),
                     onPressed: () => addition(),
                     iconSize: 50.0,
-
-
                   ),
 
                 ],
               ),
               Row(
                 children: <Widget>[
-
-                  IconButton(
-                    icon: new Text(
-                      '4',
-                      style: new TextStyle(
-
-                          fontSize: 30.0,
-                          fontWeight: FontWeight.w800,
-                          color: Colors.blue.shade400),
-                    ),
-                    onPressed: () => inputValue(4),
-                    iconSize: 80.0,
-
-
-                  ),
-                  IconButton(
-                    icon: new Text(
-                      '5',
-                      style: new TextStyle(
-
-                          fontSize: 30.0,
-                          fontWeight: FontWeight.w800,
-                          color: Colors.blue.shade400),
-                    ),
-                    onPressed: () => inputValue(5),
-                    iconSize: 80.0,
-
-
-                  ),
-                  IconButton(
-                    icon: new Text(
-                      '6',
-                      style: new TextStyle(
-
-                          fontSize: 30.0,
-                          fontWeight: FontWeight.w800,
-                          color: Colors.blue.shade400),
-                    ),
-                    onPressed: () => inputValue(6),
-                    iconSize: 80.0,
-
-
-                  ),
+                  iconButton(4),
+                  iconButton(5),
+                  iconButton(6),
                   IconButton(
                     icon: Icon(FontAwesomeIcons.minus),
                     onPressed: () => inputValue(9),
@@ -156,49 +75,9 @@ class HomeState extends State<MainScreen> {
               ),
               Row(
                 children: <Widget>[
-
-                  IconButton(
-                    icon: new Text(
-                      '1',
-                      style: new TextStyle(
-
-                          fontSize: 30.0,
-                          fontWeight: FontWeight.w800,
-                          color: Colors.blue.shade400),
-                    ),
-                    onPressed: () => inputValue(1),
-                    iconSize: 80.0,
-
-
-                  ),
-                  IconButton(
-                    icon: new Text(
-                      '2',
-                      style: new TextStyle(
-
-                          fontSize: 30.0,
-                          fontWeight: FontWeight.w800,
-                          color: Colors.blue.shade400),
-                    ),
-                    onPressed: () => inputValue(2),
-                    iconSize: 80.0,
-
-
-                  ),
-                  IconButton(
-                    icon: new Text(
-                      '3',
-                      style: new TextStyle(
-
-                          fontSize: 30.0,
-                          fontWeight: FontWeight.w800,
-                          color: Colors.blue.shade400),
-                    ),
-                    onPressed: () => inputValue(3),
-                    iconSize: 80.0,
-
-
-                  ),
+                  iconButton(1),
+                  iconButton(2),
+                  iconButton(3),
                   IconButton(
                     icon: Icon(Icons.clear),
                     onPressed: () => inputValue(9),
@@ -211,49 +90,9 @@ class HomeState extends State<MainScreen> {
               ),
               Row(
                 children: <Widget>[
-
-                  IconButton(
-                    icon: new Text(
-                      '%',
-                      style: new TextStyle(
-
-                          fontSize: 30.0,
-                          fontWeight: FontWeight.w800,
-                          color: Colors.blue.shade400),
-                    ),
-                    onPressed: () => inputValue(100),
-                    iconSize: 80.0,
-
-
-                  ),
-                  IconButton(
-                    icon: new Text(
-                      '0',
-                      style: new TextStyle(
-
-                          fontSize: 30.0,
-                          fontWeight: FontWeight.w800,
-                          color: Colors.blue.shade400),
-                    ),
-                    onPressed: () => inputValue(0),
-                    iconSize: 80.0,
-
-
-                  ),
-                  IconButton(
-                    icon: new Text(
-                      '.',
-                      style: new TextStyle(
-
-                          fontSize: 30.0,
-                          fontWeight: FontWeight.w800,
-                          color: Colors.blue.shade400),
-                    ),
-                    onPressed: () => inputValue(10),
-                    iconSize: 80.0,
-
-
-                  ),
+                  iconButton(100),
+                  iconButton(0),
+                  iconButton(10),
                   IconButton(
                     icon: Icon(FontAwesomeIcons.divide),
                     onPressed: () => doAddition(),
@@ -308,6 +147,24 @@ class HomeState extends State<MainScreen> {
         _finalAnswer = 0;
       });
 
+    }
+
+    Widget iconButton(int digit){
+     return IconButton(
+        icon: new Text(
+          digit.toString(),
+          style: new TextStyle(
+
+              fontSize: 30.0,
+              fontWeight: FontWeight.w800,
+              color: Colors.blue.shade400),
+
+        ),
+        onPressed: () => inputValue(digit),
+        iconSize: 70.0,
+
+
+      );
     }
 
 
